@@ -1,0 +1,29 @@
+apiVersion: 1
+
+providers:
+- name: 'Sushi dashboards'
+  orgId: 1
+  folder: 'sushi'
+  type: file
+  disableDeletion: true
+  editable: false
+  options:
+    path: /etc/grafana/provisioning/dashboards/sushi
+
+- name: 'System dashboards'
+  orgId: 1
+  folder: 'system'
+  type: file
+  disableDeletion: true
+  editable: false
+  options:
+    path: /etc/grafana/provisioning/dashboards/system
+
+- name: 'Vaults dashboards'
+  orgId: 1
+  folder: 'vaults'
+  type: file
+  disableDeletion: true
+  editable: false
+  options:
+    path: /etc/grafana/provisioning/dashboards/vaults
