@@ -15,25 +15,25 @@ class HashBrownieStub(object):
             channel: A grpc.Channel.
         """
         self.GetCode = channel.unary_unary(
-                '/HashBrownie/GetCode',
-                request_serializer=schema__pb2.GetCodeRequest.SerializeToString,
-                response_deserializer=schema__pb2.Code.FromString,
-                )
+            "/HashBrownie/GetCode",
+            request_serializer=schema__pb2.GetCodeRequest.SerializeToString,
+            response_deserializer=schema__pb2.Code.FromString,
+        )
         self.GetAbi = channel.unary_unary(
-                '/HashBrownie/GetAbi',
-                request_serializer=schema__pb2.GetAbiRequest.SerializeToString,
-                response_deserializer=schema__pb2.Abi.FromString,
-                )
+            "/HashBrownie/GetAbi",
+            request_serializer=schema__pb2.GetAbiRequest.SerializeToString,
+            response_deserializer=schema__pb2.Abi.FromString,
+        )
         self.PutAbi = channel.unary_unary(
-                '/HashBrownie/PutAbi',
-                request_serializer=schema__pb2.PutAbiRequest.SerializeToString,
-                response_deserializer=schema__pb2.Empty.FromString,
-                )
+            "/HashBrownie/PutAbi",
+            request_serializer=schema__pb2.PutAbiRequest.SerializeToString,
+            response_deserializer=schema__pb2.Empty.FromString,
+        )
         self.GetLogs = channel.unary_unary(
-                '/HashBrownie/GetLogs',
-                request_serializer=schema__pb2.GetLogsRequest.SerializeToString,
-                response_deserializer=schema__pb2.Logs.FromString,
-                )
+            "/HashBrownie/GetLogs",
+            request_serializer=schema__pb2.GetLogsRequest.SerializeToString,
+            response_deserializer=schema__pb2.Logs.FromString,
+        )
 
 
 class HashBrownieServicer(object):
@@ -42,124 +42,173 @@ class HashBrownieServicer(object):
     def GetCode(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def GetAbi(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def PutAbi(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def GetLogs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
 
 def add_HashBrownieServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetCode': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCode,
-                    request_deserializer=schema__pb2.GetCodeRequest.FromString,
-                    response_serializer=schema__pb2.Code.SerializeToString,
-            ),
-            'GetAbi': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetAbi,
-                    request_deserializer=schema__pb2.GetAbiRequest.FromString,
-                    response_serializer=schema__pb2.Abi.SerializeToString,
-            ),
-            'PutAbi': grpc.unary_unary_rpc_method_handler(
-                    servicer.PutAbi,
-                    request_deserializer=schema__pb2.PutAbiRequest.FromString,
-                    response_serializer=schema__pb2.Empty.SerializeToString,
-            ),
-            'GetLogs': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetLogs,
-                    request_deserializer=schema__pb2.GetLogsRequest.FromString,
-                    response_serializer=schema__pb2.Logs.SerializeToString,
-            ),
+        "GetCode": grpc.unary_unary_rpc_method_handler(
+            servicer.GetCode,
+            request_deserializer=schema__pb2.GetCodeRequest.FromString,
+            response_serializer=schema__pb2.Code.SerializeToString,
+        ),
+        "GetAbi": grpc.unary_unary_rpc_method_handler(
+            servicer.GetAbi,
+            request_deserializer=schema__pb2.GetAbiRequest.FromString,
+            response_serializer=schema__pb2.Abi.SerializeToString,
+        ),
+        "PutAbi": grpc.unary_unary_rpc_method_handler(
+            servicer.PutAbi,
+            request_deserializer=schema__pb2.PutAbiRequest.FromString,
+            response_serializer=schema__pb2.Empty.SerializeToString,
+        ),
+        "GetLogs": grpc.unary_unary_rpc_method_handler(
+            servicer.GetLogs,
+            request_deserializer=schema__pb2.GetLogsRequest.FromString,
+            response_serializer=schema__pb2.Logs.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'HashBrownie', rpc_method_handlers)
+        "HashBrownie", rpc_method_handlers
+    )
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class HashBrownie(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetCode(request,
+    def GetCode(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/HashBrownie/GetCode',
+            "/HashBrownie/GetCode",
             schema__pb2.GetCodeRequest.SerializeToString,
             schema__pb2.Code.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def GetAbi(request,
+    def GetAbi(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/HashBrownie/GetAbi',
+            "/HashBrownie/GetAbi",
             schema__pb2.GetAbiRequest.SerializeToString,
             schema__pb2.Abi.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def PutAbi(request,
+    def PutAbi(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/HashBrownie/PutAbi',
+            "/HashBrownie/PutAbi",
             schema__pb2.PutAbiRequest.SerializeToString,
             schema__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def GetLogs(request,
+    def GetLogs(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/HashBrownie/GetLogs',
+            "/HashBrownie/GetLogs",
             schema__pb2.GetLogsRequest.SerializeToString,
             schema__pb2.Logs.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
